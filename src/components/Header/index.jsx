@@ -1,4 +1,5 @@
 import styles from './style.module.scss';
+import {useLocationStore} from '../../utils/locationStore';
 
 const stores = [
 	{
@@ -29,10 +30,12 @@ const stores = [
 ]
 
 const Header = () => {
+	const {setLocation, location} = useLocationStore();
+
 	return (
 		<div className={styles.header}>
 			<img src="/images/logo.svg" alt="logo" className={styles.header__logo}/>
-			<select className={styles.header__select}>
+			<select className={styles.header__select} defaultValue={location} onChange={(e) => setLocation(e.target.value)}>
 				{stores.map(store => (
 					<option className={styles.header__option} key={store.id} value={store.id}>{store.name}</option>
 				))}
