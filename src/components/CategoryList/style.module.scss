@@ -23,6 +23,7 @@
 
 .category {
 	display: flex;
+	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: flex-start;
 	padding: 10px;
