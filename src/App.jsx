@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.module.scss'
 import { CategoryList, Header } from './components'
 import { ThemeContext } from './context/ThemeContext'
+import ProductList from './components/ProductList'
 
 const tg = window.Telegram.WebApp
 
@@ -10,8 +11,6 @@ function App() {
 
   useEffect(() => {
     tg.init
-    console.log('tg', tg.platform)
-    // tg.platform !== "unknown" && tg.init()
   }, [])
 
   return (
@@ -21,7 +20,7 @@ function App() {
         <CategoryList 
           onCategoryClick={(category) => console.log(category)}
         />
-        {tg.platform !== "unknown" && tg.platform}
+        <ProductList />
       </div>
     </ThemeContext.Provider>
   )

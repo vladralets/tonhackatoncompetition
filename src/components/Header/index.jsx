@@ -3,27 +3,27 @@ import {useLocationStore} from '../../utils/locationStore';
 
 const stores = [
 	{
-		id: 1,
+		id: 0,
 		name: 'Karlovy Vary',
 	},
 	{
-		id: 2,
+		id: 1,
 		name: 'Cheb',
 	},
 	{
-		id: 3,
+		id: 2,
 		name: 'Praha - Florenc',
 	},
 	{
-		id: 4,
+		id: 3,
 		name: 'Praha - Čimice',
 	},
 	{
-		id: 5,	
+		id: 4,	
 		name: 'Praha - Vršovice',
 	},
 	{
-		id: 6,	
+		id: 5,	
 		name: 'Praha - Malostranská',
 	}
 
