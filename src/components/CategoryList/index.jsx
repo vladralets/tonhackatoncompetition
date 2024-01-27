@@ -12,7 +12,7 @@ const CategoryList = ({
 	const [isDesctop, setIsDesctop] = useState(false)
 	
 	useEffect(() => {
-		setIsDesctop(tg.platform === "macos" || tg.platform === "windows")
+		setIsDesctop(tg.platform === "macos" || tg.platform === "tdesktop")
 	}, [])
 
 	return (
