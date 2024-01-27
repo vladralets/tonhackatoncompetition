@@ -19,7 +19,7 @@ function App() {
         <CategoryList 
         
         />
-        {tg.isMobile() ? 'Mobile' : 'Desktop'}
+        {tg?.platform}
       </div>
     </ThemeContext.Provider>
   )
