@@ -1,5 +1,6 @@
 import style from './style.module.scss'
-
+const tg = window.Telegram.WebApp
+import { useEffect, useState } from 'react'
 
 const categories = ['Vše', 'Snídaně', 'Bagely', 'Saláty', 'Snacky', 'Polévky', 'Dezerty', 'Nápoje', 'Káva'];
 
@@ -8,8 +9,14 @@ const CategoryList = ({
 	// eslint-disable-next-line react/prop-types
 	onCategoryClick,
 }) => {
+	const [isDesctop, setIsDesctop] = useState(false)
+	
+	useEffect(() => {
+		setIsDesctop(tg.platform === "macos" || tg.platform === "windows")
+	}, [])
+
 	return (
-		<div className={style.category}>
+		<div className={`${isDesctop ? style.categoryExt : style.category}`}>
 			{categories.map((category, index) => (
 				<button 
 					key={index} 
