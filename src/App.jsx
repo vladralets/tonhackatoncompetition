@@ -3,14 +3,13 @@ import './App.module.scss'
 import { CategoryList, Header } from './components'
 import { ThemeContext } from './context/ThemeContext'
 
-// const tg = window.Telegram.WebApp
+const tg = window.Telegram.WebApp
 
 function App() {
   // const [stage, setStage] = useState('order')
 
   useEffect(() => {
-    // tg.init()
-    // alert('Hello, world!')
+    tg.init()
   }, [])
 
   return (
@@ -20,6 +19,7 @@ function App() {
         <CategoryList 
         
         />
+        {tg.isMobile() ? 'Mobile' : 'Desktop'}
       </div>
     </ThemeContext.Provider>
   )
