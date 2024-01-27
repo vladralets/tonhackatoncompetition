@@ -1,9 +1,12 @@
-import './App.css'
+import './App.module.scss'
+import { Header } from './components'
 
 function App() {
 
   return (
-    <div>Gogi Doe</div>
+    <div>
+      <Header />
+    </div>
   )
 }
 
