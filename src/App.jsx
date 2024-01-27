@@ -6,7 +6,7 @@ import { ThemeContext } from './context/ThemeContext'
 const tg = window.Telegram.WebApp
 
 function App() {
-  // const [stage, setStage] = useState('order')
+  const [stage, setStage] = useState('order')
 
   useEffect(() => {
     tg.init
@@ -19,7 +19,7 @@ function App() {
       <div>
         <Header />
         <CategoryList 
-        
+          onCategoryClick={(category) => console.log(category)}
         />
         {tg.platform !== "unknown" && tg.platform}
       </div>
