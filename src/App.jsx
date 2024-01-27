@@ -10,8 +10,8 @@ function App() {
 
   useEffect(() => {
     tg.init
-    console.log('tg', tg)
-    tg.platform !== "unknown" && tg.init()
+    console.log('tg', tg.platform)
+    // tg.platform !== "unknown" && tg.init()
   }, [])
 
   return (
