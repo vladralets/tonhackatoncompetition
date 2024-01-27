@@ -2,7 +2,35 @@ import style from './style.module.scss'
 const tg = window.Telegram.WebApp
 import { useEffect, useState } from 'react'
 
-const categories = ['Vše', 'Snídaně', 'Bagely', 'Saláty', 'Snacky', 'Polévky', 'Dezerty', 'Nápoje', 'Káva'];
+// const categories = ['Vše', 'Snídaně', 'Bagely', 'Saláty', 'Snacky', 'Polévky', 'Dezerty', 'Nápoje', 'Káva'];
+const categories = [{
+	id: "all",
+	name: "Vše",
+}, {
+	id: 0,
+	name: "Snídaně",
+}, {
+id: 1,
+	name: "Bagely",
+}, {
+id: 2,
+	name: "Saláty",
+}, {
+id: 3,	
+	name: "Snacky",
+}, {
+id: 4,
+	name: "Polévky",
+}, {
+id: 5,
+	name: "Dezerty",
+}, {
+id: 6,
+	name: "Nápoje",
+}, {
+id: 7,
+	name: "Káva",
+}]
 
 
 const CategoryList = ({
@@ -20,10 +48,10 @@ const CategoryList = ({
 			{categories.map((category, index) => (
 				<button 
 					key={index} 
-					onClick={() => onCategoryClick(category)} 
+					onClick={() => onCategoryClick(category.id)} 
 					className={style.category__button}
 				>
-					{category}
+					{category.name}
 				</button>
 			))}
 		</div>

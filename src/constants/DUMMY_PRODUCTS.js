@@ -3,7 +3,7 @@ export const DUMMY_PRODUCTS = [
 			id: 0,
 			products: [
 				{
-					category: '0',
+					category: 0,
 					categoryName: 'Snídaně',
 					products: [
 						{
@@ -30,7 +30,7 @@ export const DUMMY_PRODUCTS = [
 					],
 				},
 				{
-					category: '1',
+					category: 1,
 					categoryName: 'Bagely',
 					products: [
 						{

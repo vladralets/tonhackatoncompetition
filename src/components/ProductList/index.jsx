@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
 import { useLocationStore } from "../../utils/locationStore"
 
@@ -6,7 +7,9 @@ import ProductCard from "../ProductCard"
 
 import style from './style.module.scss'
 
-const ProductList = () => {
+const ProductList = ({
+	categoryId,
+}) => {
 
 	const [products, setProducts] = useState([])
 
@@ -23,22 +26,43 @@ const ProductList = () => {
 	return (
 		<div>
 			{
-				products.map((category) => {
-					return (
-						<div className={style.category} key={category.id}>
-							<h2 className={style.category__title}>{category.categoryName}</h2>
-							<div className={style.category__list}>
-								{category.products.map((product) => {
-									return (
-										<ProductCard
-											key={product.id}
-											product={product}
-										/>
-									)
-								})}
+				products.map((category, index) => {
+					if (categoryId === "all") {
+						return (
+							<div className={style.category} key={index}>
+								<h2 className={style.category__title}>{category.categoryName}</h2>
+								<div className={style.category__list}>
+									{category.products.map((product, index) => {
+										return (
+											<ProductCard
+												key={index}
+												product={product}
+											/>
+										)
+									})}
+								</div>
 							</div>
-						</div>
-					)
+						)
+					} else {
+						if (categoryId === category.category) {
+							return (
+								<div className={style.category} key={index}>
+									<h2 className={style.category__title}>{category.categoryName}</h2>
+									<div className={style.category__list}>
+										{category.products.map((product, index) => {
+											return (
+												<ProductCard
+													key={index}
+													product={product}
+												/>
+											)
+										})}
+									</div>
+								</div>
+							)
+						}
+					}
+					
 				})
 			}
 		</div>
