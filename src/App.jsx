@@ -9,6 +9,7 @@ function App() {
   // const [stage, setStage] = useState('order')
 
   useEffect(() => {
+    tg.init
     console.log('tg', tg)
     tg.platform !== "unknown" && tg.init()
   }, [])
