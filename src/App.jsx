@@ -9,7 +9,7 @@ function App() {
   // const [stage, setStage] = useState('order')
 
   useEffect(() => {
-    tg.init()
+    tg && tg.init()
   }, [])
 
   return (
@@ -19,7 +19,7 @@ function App() {
         <CategoryList 
         
         />
-        {tg?.platform}
+        {tg && tg.platform}
       </div>
     </ThemeContext.Provider>
   )
