@@ -67,4 +67,14 @@
 		border: none;
 		color: #282c34;
 	}
+
+	&__button {
+		background-color: #282c34;
+		border: none;
+		color: white;
+		font-style: 30px;
+		padding: 15px 25px;
+		border-radius: 20px;
+		width: 100%;
+	}
 }

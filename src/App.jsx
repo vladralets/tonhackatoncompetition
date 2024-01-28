@@ -5,6 +5,7 @@ import { ThemeContext } from './context/ThemeContext'
 import {ProductList} from './components'
 import {ProductDetail} from './components'
 import {Cart} from './components'
+import { Form } from './components'
 import { useCartStore } from './utils/cartStore'
 
 const tg = window.Telegram.WebApp
@@ -14,7 +15,21 @@ function App() {
   const [category, setCategory] = useState('all')
   const [product, setProduct] = useState(null)
 
-  const { cart } = useCartStore()
+  const { cart, clear } = useCartStore()
+
+  const sendOrderHandler = (form) => {
+    const order = {
+      ...form,
+      products: cart.products
+    }
+
+    console.log('order', order)
+    clear()
+
+    setStage('list')
+
+    // tg.sendOrder(order)
+  }
 
   useEffect(() => {
     console.log('tg', tg)
@@ -40,7 +55,8 @@ function App() {
         <ProductList onProductClick={onProductClick} categoryId={category} />
         {product && <ProductDetail product={product} onClose={() => setProduct(null)}/>}
         {cart.products.length > 0 && <div className={style.cart}><button className={style.cart__button} onClick={() => setStage('cart')}>Košík</button></div>}</>)}
-          {stage === 'cart' && <Cart onClose={() => setStage('list')} />}
+          {stage === 'cart' && <Cart onCheckout={() => setStage('order')} onClose={() => setStage('list')} />}
+          {stage === 'order' && <Form sendOrder={sendOrderHandler} onClose={() => setStage('list')} />}
       </div>
     </ThemeContext.Provider>
   )

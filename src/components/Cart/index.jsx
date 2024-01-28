@@ -2,7 +2,7 @@
 import {useCartStore} from '../../utils/cartStore'
 import style from './style.module.scss'
 
-const Cart = ({onClose}) => {
+const Cart = ({onClose, onCheckout}) => {
 	const {cart} = useCartStore()
 
 	return (
@@ -23,6 +23,9 @@ const Cart = ({onClose}) => {
 				</div>
 			)
 			)}
+			<button className={style.cart__button} onClick={onCheckout}>
+				Překontrolovat
+			</button>
 		</div>
 	)
 }
