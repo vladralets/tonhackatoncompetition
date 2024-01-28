@@ -24,7 +24,8 @@ const Form = ({onClose, sendOrder}) => {
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', handleSubmit)
-	}, [handleSubmit])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	useEffect(() => {
 		if (!name || !phone || !address || !time) {
