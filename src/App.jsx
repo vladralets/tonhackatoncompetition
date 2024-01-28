@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     console.log('tg', tg)
     tg.init
-    tg.isExpanded
+    tg.expand()
   }, [])
 
   const onCategoryClick = (categoryId) => {
