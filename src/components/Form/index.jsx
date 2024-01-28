@@ -24,7 +24,7 @@ const Form = ({onClose, sendOrder}) => {
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', handleSubmit)
-	}, [])
+	}, [handleSubmit])
 
 	useEffect(() => {
 		if (!name || !phone || !address || !time) {
@@ -36,9 +36,7 @@ const Form = ({onClose, sendOrder}) => {
 	}, [name, phone, address, time])
 
 
-	const handleSubmit = (e) => {
-		e.preventDefault()
-
+	const handleSubmit = () => {
 		const order = {
 			name,
 			phone,
