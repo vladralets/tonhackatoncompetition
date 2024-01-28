@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 export const useCartStore = create((set) => ({
 	cart: {
-		products: [],
+		products: [1],
 		totalPrice: 0,
 	},
 	addToCart: (product) =>
