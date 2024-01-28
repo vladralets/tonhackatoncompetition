@@ -2,11 +2,11 @@
 import styles from './style.module.scss'
 
 const ProductCard = ({
-	onClick,
+	onProductClick,
 	product,
 }) => {
 	return (
-		<div key={product.id} onClick={onClick} className={styles.product}>
+		<div key={product.id} onClick={() => onProductClick(product)} className={styles.product}>
 			<img src={product.image} alt={product.name} className={styles.product__image}/>
 			<div className={styles.product__info}>
 				<h3  className={styles.product__name}>{product.name}</h3>

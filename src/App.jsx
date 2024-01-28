@@ -2,31 +2,37 @@ import { useEffect, useState } from 'react'
 import './App.module.scss'
 import { CategoryList, Header } from './components'
 import { ThemeContext } from './context/ThemeContext'
-import ProductList from './components/ProductList'
+import {ProductList} from './components'
+import {ProductDetail} from './components'
 
 const tg = window.Telegram.WebApp
 
 function App() {
-  const [stage, setStage] = useState('order')
+  // const [stage, setStage] = useState('order')
   const [category, setCategory] = useState('all')
+  const [product, setProduct] = useState(null)
 
   useEffect(() => {
     tg.init
   }, [])
 
   const onCategoryClick = (categoryId) => {
-    console.log(categoryId)
     setCategory(categoryId)
+  }
+
+  const onProductClick = (product) => {
+    setProduct(product)
   }
 
   return (
     <ThemeContext.Provider value={'light'}>
-      <div>
+      <div style={{position: 'relative'}}>
         <Header />
         <CategoryList 
           onCategoryClick={onCategoryClick}
         />
-        <ProductList categoryId={category}/>
+        <ProductList onProductClick={onProductClick} categoryId={category} />
+        {product && <ProductDetail product={product} />}
       </div>
     </ThemeContext.Provider>
   )

@@ -9,6 +9,7 @@ import style from './style.module.scss'
 
 const ProductList = ({
 	categoryId,
+	onProductClick
 }) => {
 
 	const [products, setProducts] = useState([])
@@ -37,6 +38,7 @@ const ProductList = ({
 											<ProductCard
 												key={index}
 												product={product}
+												onProductClick={onProductClick}
 											/>
 										)
 									})}
