@@ -23,17 +23,8 @@ function App() {
       products: cart.products
     }
 
-    console.log('order', order)
+    tg.sendData(JSON.stringify(order))
     clear()
-    if(sendOrderHandler){
-      try{
-        await tg.sendData('Dekujeme za objednavku' + order.name + ' ' )
-        await tg.sendData('Objednavka: ' + order.phone + ' ' + order.address + ' ' + order.time)
-      }
-      catch(err){
-        console.log(err)
-      }
-    }
     setStage('list')
   }
     

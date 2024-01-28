@@ -21,6 +21,11 @@ const Form = ({onClose, sendOrder}) => {
 		})
 	}, [])
 
+
+	useEffect(() => {
+		tg.onEvent('mainButtonClicked', handleSubmit)
+	}, [])
+
 	useEffect(() => {
 		if (!name || !phone || !address || !time) {
 			tg.MainButton.hide()
