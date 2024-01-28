@@ -14,6 +14,7 @@ const Form = ({onClose, sendOrder}) => {
 		tg.MainButton.setParams({
 			text: 'Objednat',
 			isVisible: true,
+			color: "#282c34",
 			onClick: () => {
 				tg.hide()
 			}
@@ -54,7 +55,6 @@ const Form = ({onClose, sendOrder}) => {
 				<input className={style.form__input} type="text" placeholder="Zadejte své telefonní číslo" value={phone} onChange={e => setPhone(e.target.value)}/>
 				<input className={style.form__input} type="text" placeholder="Zadejte svou adresu" value={address} onChange={e => setAddress(e.target.value)}/>
 				<input className={style.form__input} type="time" placeholder="Zadejte čas doručení" value={time} onChange={e => setTime(e.target.value)}/>
-				<button className={style.form__button} type="submit">Odeslat</button>
 			</form>
 
 
