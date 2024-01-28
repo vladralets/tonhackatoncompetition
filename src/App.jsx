@@ -45,7 +45,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={'light'}>
-      <div style={{position: 'relative', paddingBottom: '40px'}}>
+      <div style={{position: 'relative', paddingBottom: '40px', backgroundColor: 'white'}}>
         <Header />
         {stage === 'list' && (<><CategoryList 
           onCategoryClick={onCategoryClick}
