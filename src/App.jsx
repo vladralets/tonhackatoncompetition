@@ -17,6 +17,7 @@ function App() {
   const { cart } = useCartStore()
 
   useEffect(() => {
+    console.log('tg', tg)
     tg.init
     tg.isExpanded
   }, [])
