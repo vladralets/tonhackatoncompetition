@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import style from './style.module.scss'
 
-const ProductDetail = ({product}) => {
+const ProductDetail = ({product, onClose}) => {
 	return (
-		<div className={style.product}>
+		<div className={style.product} onClick={onClose}>
 			<div className={style.product__wrapper}>
 				<img src={product.image} alt={product.name} className={style.product__image}/>
 				<div className={style.product__info}>

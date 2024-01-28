@@ -32,7 +32,7 @@ function App() {
           onCategoryClick={onCategoryClick}
         />
         <ProductList onProductClick={onProductClick} categoryId={category} />
-        {product && <ProductDetail product={product} />}
+        {product && <ProductDetail product={product} onClose={() => setProduct(null)}/>}
       </div>
     </ThemeContext.Provider>
   )
