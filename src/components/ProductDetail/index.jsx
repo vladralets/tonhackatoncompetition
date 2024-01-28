@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import style from './style.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import {useCartStore} from '../../utils/cartStore'
 
 const ProductDetail = ({product, onClose}) => {
 	const [count, setCount] = useState(0)
+	const {addToCart, cart} = useCartStore()
 
 	const countHandler = (mode) => {
 		if (mode === 'plus') {
@@ -18,8 +20,27 @@ const ProductDetail = ({product, onClose}) => {
 		}
 	}
 
+	useEffect(() => {
+		const productInCart = cart.products.find(item => item.id === product.id)
+		if (productInCart) {
+			console.log(productInCart);
+			setCount(+productInCart.count)
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+	useEffect(() => {
+		console.log(count)
+	}, [count])
+
+	const handleAddToCart = () => {
+		addToCart(product, count)
+		setCount(0)
+		onClose()
+	}
+
 	return (
-		<div className={style.product} onClick={onClose}>
+		<div className={style.product} onClick={handleAddToCart}>
 			<div className={style.product__wrapper} onClick={(e) => e.stopPropagation()}>
 				<img src={product.image} alt={product.name} className={style.product__image}/>
 				<div className={style.product__info}>

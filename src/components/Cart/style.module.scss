@@ -1,0 +1,11 @@
+.cart {
+	width: 100%;
+	&__close {
+		background-color: #282c34;
+		border: none;
+		color: white;
+		margin: 0 auto;
+		width: 100%;
+		padding: 10px 0;
+	}
+}
