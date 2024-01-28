@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './style.module.scss'
+const tg = window.Telegram.WebApp
 
 const Form = ({onClose, sendOrder}) => {
 
@@ -8,6 +9,26 @@ const Form = ({onClose, sendOrder}) => {
 	const [phone, setPhone] = useState('')
 	const [address, setAddress] = useState('')
 	const [time, setTime] = useState('')
+
+	useEffect(() => {
+		tg.MainButton.setParams({
+			text: 'Objednat',
+			isVisible: true,
+			onClick: () => {
+				tg.hide()
+			}
+		})
+	}, [])
+
+	useEffect(() => {
+		if (!name || !phone || !address || !time) {
+			tg.MainButton.hide()
+		} else {
+			tg.MainButton.show()
+			console.log('show');
+		}	
+	}, [name, phone, address, time])
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -35,6 +56,8 @@ const Form = ({onClose, sendOrder}) => {
 				<input className={style.form__input} type="time" placeholder="Zadejte čas doručení" value={time} onChange={e => setTime(e.target.value)}/>
 				<button className={style.form__button} type="submit">Odeslat</button>
 			</form>
+
+
 		</div>
 	)
 }

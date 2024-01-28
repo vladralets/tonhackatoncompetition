@@ -17,7 +17,7 @@ function App() {
 
   const { cart, clear } = useCartStore()
 
-  const sendOrderHandler = (form) => {
+  const sendOrderHandler = async (form) => {
     const order = {
       ...form,
       products: cart.products
@@ -25,11 +25,18 @@ function App() {
 
     console.log('order', order)
     clear()
-
+    if(sendOrderHandler){
+      try{
+        await tg.sendData('Dekujeme za objednavku' + order.name + ' ' )
+        await tg.sendData('Objednavka: ' + order.phone + ' ' + order.address + ' ' + order.time)
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
     setStage('list')
-
-    // tg.sendOrder(order)
   }
+    
 
   useEffect(() => {
     console.log('tg', tg)
