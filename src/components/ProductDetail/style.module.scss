@@ -16,19 +16,6 @@
 		box-shadow: #8CCBBA 0px 0px 15px;
 	}
 
-	&__count {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		background-color: #8CCBBA;
-		color: white;
-		font-size: 14px;
-		font-weight: 600;
-		padding: 5px 10px;
-		border-radius: 50%;
-	
-	}
-
 	&__image {
 		width: 100vw;
 		height: 200px;
@@ -60,21 +47,39 @@
 		color: #f00;
 	}
 
-	&__btns {
+	&__order {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 50px;
-		background-color: white;
 	}
 
-	&__btn {
-		width: 49.9%;
-		height: 100%;
-		background-color: #8CCBBA;
+	&__buttons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 30px;
+		background-color: white;
+		gap: 10px;
+	}
+
+	&__button {
+		background-color: #282c34;
 		color: white;
 		font-size: 16px;
-		font-weight: 600;
+		padding: 5px 10px;
+		font-weight: 400;
+		border-radius: 20px;
+		border: none;
+	}
+
+	&__buttonHandle {
+		background-color: #282c34;
+		color: white;
+		width: 30px;
+		font-size: 16px;
+		padding: 5px 10px;
+		font-weight: 400;
+		border-radius: 20px;
 		border: none;
 	}
 }
