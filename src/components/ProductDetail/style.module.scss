@@ -16,6 +16,19 @@
 		box-shadow: #8CCBBA 0px 0px 15px;
 	}
 
+	&__count {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background-color: #8CCBBA;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 5px 10px;
+		border-radius: 50%;
+	
+	}
+
 	&__image {
 		width: 100vw;
 		height: 200px;
@@ -52,6 +65,16 @@
 		justify-content: space-between;
 		align-items: center;
 		height: 50px;
+		background-color: white;
+	}
+
+	&__btn {
+		width: 49.9%;
+		height: 100%;
 		background-color: #8CCBBA;
+		color: white;
+		font-size: 16px;
+		font-weight: 600;
+		border: none;
 	}
 }
