@@ -29,7 +29,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={'light'}>
-      <div style={{position: 'relative'}}>
+      <div style={{position: 'relative', paddingBottom: '40px'}}>
         <Header />
         <CategoryList 
           onCategoryClick={onCategoryClick}
