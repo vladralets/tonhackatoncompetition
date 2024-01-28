@@ -7,16 +7,18 @@ const Cart = ({onClose}) => {
 
 	return (
 		<div className={style.cart}>
-			<button onClick={onClose} className={style.cart__close}>Zavřít</button>
-			<h2>Cart</h2>
+			<div className={style.cart__nav}>
+				<h2 className={style.cart__title}>Cart</h2>
+				<button onClick={onClose} className={style.cart__close}>Zavřít</button>
+			</div>
 			{cart.products.map((item, index) => (
-				<div key={index}>
-					<img src={item.image} alt={item.name} />
-					<div>
-						<h3>{item.name}</h3>
-						<p>{item.price}</p>
-						<p>{item.count}</p>
-						<p>{item.price * item.count}</p>
+				<div className={style.cart__item} key={index}>
+					<img src={item.image} alt={item.name} className={style.cart__image}/>
+					<div className={style.cart__info}>
+						<h3 className={style.cart__name}>{item.name}</h3>
+						<p className={style.cart__price}>Price: {item.price} czk</p>
+						<p className={style.cart__quantity}>Quantity: {item.count}</p>
+						<p className={style.cart__itemTotal}>Total: {item.price * item.count}</p>
 					</div>
 				</div>
 			)
