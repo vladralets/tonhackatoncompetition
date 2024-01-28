@@ -42,7 +42,7 @@ export const DUMMY_PRODUCTS = [
 						},
 						{
 							id: 5,
-							name: 'DUCK VERY SPECIAL',
+							name: 'DUCK SPECIAL 2',
 							price: 120,
 							image: '/images/products/shaurma.jpeg',
 							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
